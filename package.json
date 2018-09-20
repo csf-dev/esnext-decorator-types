@@ -22,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/csf-dev/esnext-decorator-types/issues"
   },
-  "homepage": "https://github.com/csf-dev/esnext-decorator-types#readme"
+  "homepage": "https://github.com/csf-dev/esnext-decorator-types#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
+    "flow-bin": "^0.81.0"
+  }
 }

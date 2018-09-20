@@ -1,0 +1,26 @@
+{
+  "name": "esnext-decorator-types",
+  "version": "0.1.0",
+  "description": "Flow type declarations supporting Decorators (class, field & method) in line with current Stage 2 ECMAScript proposals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csf-dev/esnext-decorator-types.git"
+  },
+  "keywords": [
+    "flow",
+    "babel",
+    "decorator",
+    "proposal",
+    "stage2"
+  ],
+  "author": "Craig Fowler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csf-dev/esnext-decorator-types/issues"
+  },
+  "homepage": "https://github.com/csf-dev/esnext-decorator-types#readme"
+}

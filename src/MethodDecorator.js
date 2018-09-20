@@ -4,6 +4,7 @@ import type { Key } from './Key';
 import type { Placement } from './Placement';
 import type { Initializer } from './Initializer';
 import type { Constructor } from './Constructor';
+import type { ElementDescriptor } from './MultipurposeDecorators';
 
 /* The input decorator descriptor */
 export type MethodDescriptor<T> = {
@@ -15,7 +16,7 @@ export type MethodDescriptor<T> = {
 
 /* The output decorator descriptor */
 type MethodDescriptorOutputExtensions = {
-    extras? : ?Array<PropertyDescriptor<mixed>>;
+    extras? : ?Array<ElementDescriptor<mixed>>;
     finisher? : ?Constructor;
 };
 export type MethodOutputDescriptor<T> = MethodDescriptor<T> & MethodDescriptorOutputExtensions;

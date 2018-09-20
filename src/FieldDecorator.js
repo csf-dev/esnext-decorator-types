@@ -4,6 +4,7 @@ import type { Key } from './Key';
 import type { Placement } from './Placement';
 import type { Initializer } from './Initializer';
 import type { Constructor } from './Constructor';
+import type { ElementDescriptor } from './MultipurposeDecorators';
 
 /* The input decorator descriptor */
 export type FieldDescriptor<T> = {
@@ -16,7 +17,7 @@ export type FieldDescriptor<T> = {
 
 /* The output decorator descriptor */
 type FieldDescriptorOutputExtensions = {
-    extras? : ?Array<PropertyDescriptor<mixed>>;
+    extras? : ?Array<ElementDescriptor<mixed>>;
     finisher? : ?Constructor;
 };
 export type FieldOutputDescriptor<T> = FieldDescriptor<T> & FieldDescriptorOutputExtensions;

@@ -4,10 +4,7 @@ import type { Key } from './Key';
 import type { Placement } from './Placement';
 import type { Initializer } from './Initializer';
 import type { ConstructorObject, Constructor } from './Constructor';
-import type { MethodDescriptor } from './MethodDecorator';
-import type { FieldDescriptor } from './FieldDecorator';
-
-type MemberDescriptor<T> = MethodDescriptor<T> | FieldDescriptor<T>;
+import type { ElementDescriptor } from './MultipurposeDecorators';
 
 /* The input decorator descriptor */
 export type ClassDescriptor = {
@@ -17,7 +14,7 @@ export type ClassDescriptor = {
 
 /* The output decorator descriptor */
 export type ClassOutputDescriptor = {
-    elements : Array<MemberDescriptor<mixed>>;
+    elements : Array<ElementDescriptor<mixed>>;
     constructor? : ?Constructor;
     finisher? : ?ConstructorObject;
 }

@@ -1,9 +1,10 @@
 {
-    "presets": ["@babel/env", "@babel/flow"],
+    "presets": [
+        [ "@babel/preset-env", { "useBuiltIns": "usage" } ],
+        "@babel/flow"
+    ],
     "plugins": [
-        "transform-flow-comments",
         ["@babel/plugin-proposal-decorators", { "decoratorsBeforeExport": false }],
-        "transform-class-properties"
-      ]
-  
+        "@babel/plugin-proposal-class-properties"
+    ]
 }

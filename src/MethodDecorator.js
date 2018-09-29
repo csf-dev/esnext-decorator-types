@@ -1,5 +1,5 @@
 //@flow
-import type { Kind } from './Kind';
+import type { MethodKind } from './Kind';
 import type { Key } from './Key';
 import type { Placement } from './Placement';
 import type { Initializer } from './Initializer';
@@ -8,7 +8,7 @@ import type { ElementDescriptor } from './MultipurposeDecorators';
 
 /* The input decorator descriptor */
 export type MethodDescriptor<T> = {
-    kind : Kind;
+    kind : MethodKind;
     key : Key;
     placement : Placement;
     descriptor : PropertyDescriptor<T>;

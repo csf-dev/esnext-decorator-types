@@ -4,7 +4,8 @@
   "description": "Flow type declarations supporting Decorators (class, field & method) in line with current Stage 2 ECMAScript proposals",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx karma start",
+    "build": "npx webpack"
   },
   "repository": {
     "type": "git",
@@ -23,12 +24,31 @@
     "url": "https://github.com/csf-dev/esnext-decorator-types/issues"
   },
   "homepage": "https://github.com/csf-dev/esnext-decorator-types#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.1.0",
+    "babel-loader": "^8.0.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-flow": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-decorators": "^7.1.0",
-    "flow-bin": "^0.81.0"
-  }
+    "flow-bin": "^0.81.0",
+    "flow-typed": "^2.5.1",
+    "jasmine": "^3.2.0",
+    "jasmine-core": "^3.2.1",
+    "karma": "^3.0.0",
+    "karma-jasmine": "^1.1.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^3.0.5",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1"
+  },
+  "browserslist": [
+    "> 0.2%",
+    "last 2 versions",
+    "not ie 8",
+    "maintained node versions"
+  ]
 }

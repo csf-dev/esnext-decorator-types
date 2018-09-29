@@ -1,5 +1,5 @@
 //@flow
-import type { Kind } from './Kind';
+import type { FieldKind } from './Kind';
 import type { Key } from './Key';
 import type { Placement } from './Placement';
 import type { Initializer } from './Initializer';
@@ -8,7 +8,7 @@ import type { ElementDescriptor } from './MultipurposeDecorators';
 
 /* The input decorator descriptor */
 export type FieldDescriptor<T> = {
-    kind : Kind;
+    kind : FieldKind;
     key : Key;
     placement : Placement;
     descriptor : PropertyDescriptor<T>;
@@ -17,8 +17,8 @@ export type FieldDescriptor<T> = {
 
 /* The output decorator descriptor */
 type FieldDescriptorOutputExtensions = {
-    extras? : ?Array<ElementDescriptor<mixed>>;
-    finisher? : ?Constructor;
+    extras? : Array<ElementDescriptor<mixed>>;
+    finisher? : Constructor;
 };
 export type FieldOutputDescriptor<T> = FieldDescriptor<T> & FieldDescriptorOutputExtensions;
 

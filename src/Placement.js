@@ -2,10 +2,16 @@
 
 /** Types used by the 'placement' property of a decorator */
 
-export type StaticPlacement = 'static';
-export type PrototypePlacement = 'prototype';
-export type OwnPlacement = 'own';
+export opaque type StaticPlacement = 'static';
+export opaque type PrototypePlacement = 'prototype';
+export opaque type OwnPlacement = 'own';
 export type Placement = StaticPlacement | PrototypePlacement | OwnPlacement;
+
+type AllPlacementTypes = {
+    static:     StaticPlacement,
+    prototype:  PrototypePlacement,
+    own:        OwnPlacement
+};
 
 const allPlacements = {
     static:     'static',
@@ -13,4 +19,4 @@ const allPlacements = {
     own:        'own'
 };
 Object.freeze(allPlacements);
-export const Placements = allPlacements;
+export const Placements : AllPlacementTypes = allPlacements;

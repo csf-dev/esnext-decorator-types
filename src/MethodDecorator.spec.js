@@ -1,31 +1,31 @@
 //@flow
-import type { FieldDescriptor, FieldOutputDescriptor } from './FieldDecorator';
-import type { MethodKind } from './Kind';
-import type { OwnPlacement } from './Placement';
+import type { MethodDescriptor, MethodOutputDescriptor } from './MethodDecorator';
+import type { FieldKind, MethodKind } from './Kind';
+import type { PrototypePlacement } from './Placement';
 import { Kinds } from './Kind';
 import { Placements } from './Placement';
 
 
 describe('Field decorators', function() {
 
-    let descriptor : FieldDescriptor<string>;
+    let descriptor : MethodDescriptor<number>;
     let instance : {};
     let classInstance : any;
 
-    type HasExtraField = { extraField : number };
+    type HasExtraField = { extraField : string };
 
     beforeEach(function() {
-        function myInputDecorator(desc : FieldDescriptor<string>) : FieldOutputDescriptor<string,MyClass> {
+        function myInputDecorator(desc : MethodDescriptor<number>) : MethodOutputDescriptor<number,MyClass> {
             descriptor = desc;
             return {
                 ...desc,
                 extras: [{
                     kind: (Kinds.method : MethodKind),
                     key: 'extraField',
-                    placement: (Placements.own : OwnPlacement),
+                    placement: (Placements.prototype : PrototypePlacement),
                     descriptor: {
                         configurable: false,
-                        get: () => 5
+                        value: 'Hello there'
                     }
                 }],
                 finisher: (clazz) => {
@@ -35,11 +35,7 @@ describe('Field decorators', function() {
         }
 
         class MyClass {
-            @myInputDecorator myField : string;
-
-            constructor() {
-                this.myField = 'Ohai';
-            }
+            @myInputDecorator get myField() : number { return 22; };
         }
 
         instance = new MyClass();
@@ -47,7 +43,7 @@ describe('Field decorators', function() {
 
     describe('should accept an input', function() {
         it('which has the correct kind', function() {
-            expect(descriptor.kind).toBe('field');
+            expect(descriptor.kind).toBe('method');
         });
 
         it('which has the correct key', function() {
@@ -55,12 +51,12 @@ describe('Field decorators', function() {
         });
 
         it('which has the correct placement', function() {
-            expect(descriptor.placement).toBe('own');
+            expect(descriptor.placement).toBe('prototype');
         });
 
         describe('which has a descriptor object', function() {
             it('that is writable', function() {
-                expect(descriptor.descriptor.writable).toBeTruthy();
+                expect(descriptor.descriptor.writable).toBeFalsy();
             });
             it('that is configurable', function() {
                 expect(descriptor.descriptor.configurable).toBeTruthy();
@@ -73,17 +69,17 @@ describe('Field decorators', function() {
 
     describe('should be able to add an extra property', function() {
         it('which has the added property', function() {
-            expect(instance.hasOwnProperty('extraField')).toBeTruthy();
+            expect(instance.hasOwnProperty('extraField')).toBeFalsy();
         });
         it('which has the correct getter', function() {
             var typedInstance = ((instance : any ) : HasExtraField);
-            expect(typedInstance.extraField).toBe(5);
+            expect(typedInstance.extraField).toBe('Hello there');
         });
     });
 
     describe('should be able to use a finisher', function() {
         it('which receives the class declaration', function() {
-            expect(classInstance['myField']).toBe('Ohai');
+            expect(classInstance['myField']).toBe(22);
         });
     });
 });

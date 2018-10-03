@@ -3,7 +3,6 @@ import type { ClassKind } from './Kind';
 import type { Key } from './Key';
 import type { Placement } from './Placement';
 import type { Initializer } from './Initializer';
-import type { ConstructorObject, Constructor } from './Constructor';
 import type { ElementDescriptor } from './MultipurposeDecorators';
 
 /* The input decorator descriptor */
@@ -15,8 +14,8 @@ export type ClassDescriptor = {
 /* The output decorator descriptor */
 export type ClassOutputDescriptor = {
     elements : Array<ElementDescriptor<mixed>>;
-    constructor? : ?Constructor;
-    finisher? : ?ConstructorObject;
+    constructor? : (...params : Array<mixed>) => void;
+    finisher? : ?Class<{}>;
 }
 
 /* The decorator function itself */

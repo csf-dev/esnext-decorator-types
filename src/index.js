@@ -1,6 +1,5 @@
 //@flow
 export * from './ClassDecorator';
-export * from './Constructor';
 export * from './FieldDecorator';
 export * from './Initializer';
 export * from './Key';

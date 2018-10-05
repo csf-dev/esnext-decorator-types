@@ -8,15 +8,15 @@ import type { ElementDescriptor } from './MultipurposeDecorators';
 /* The input decorator descriptor */
 export type ClassDescriptor = {
     kind : ClassKind;
-    elements : Array<PropertyDescriptor<mixed>>;
+    elements : Array<ElementDescriptor<mixed>>;
 };
 
 /* The output decorator descriptor */
-export type ClassOutputDescriptor = {
-    elements : Array<ElementDescriptor<mixed>>;
-    constructor? : (...params : Array<mixed>) => void;
-    finisher? : ?Class<{}>;
+type ClassOutputDescriptorExtensions<TClass> = {
+    finisher? : (clazz : Class<TClass>) => void;
 }
 
+export type ClassOutputDescriptor<TClass> = ClassDescriptor & ClassOutputDescriptorExtensions<TClass>;
+
 /* The decorator function itself */
-export type ClassDecorator = (descriptor : ClassDescriptor) => ClassOutputDescriptor;
+export type ClassDecorator<TClass> = (descriptor : ClassDescriptor) => ClassOutputDescriptor<TClass>;

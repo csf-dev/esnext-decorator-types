@@ -16,5 +16,5 @@ export type ElementOutputDescriptor<T> = FieldOutputDescriptor<T> | MethodOutput
 export type ElementDecorator<T> = MethodDecorator<T> | FieldDecorator<T>;
 
 export type MultipurposeDescriptor = ClassDescriptor | ElementDescriptor<mixed>;
-export type MultipurposeOutputDescriptor = ClassOutputDescriptor | ElementOutputDescriptor<mixed>;
-export type MultipurposeDecorator = ClassDecorator | ElementDecorator<mixed>;
+export type MultipurposeOutputDescriptor = ClassOutputDescriptor<mixed> | ElementOutputDescriptor<mixed>;
+export type MultipurposeDecorator = ClassDecorator<mixed> | ElementDecorator<mixed>;

@@ -4,8 +4,7 @@
   "description": "Flow type declarations supporting Decorators (class, field & method) in line with current Stage 2 ECMAScript proposals",
   "main": "index.js",
   "scripts": {
-    "test": "npx karma start",
-    "build": "npx webpack"
+    "test": "npx karma start"
   },
   "repository": {
     "type": "git",

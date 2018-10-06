@@ -1,0 +1,11 @@
+node_modules/**/*
+.directory
+.vscode/
+flow-typed/
+.flowconfig
+.babelrc
+*.code-workspace
+karma.conf.js
+webpack.test.config.js
+*.tgz
+*.spec.js

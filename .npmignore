@@ -7,3 +7,5 @@ flow-typed/
 *.code-workspace
 karma.conf.js
 webpack.test.config.js
+*.tgz
+*.spec.js

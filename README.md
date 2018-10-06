@@ -7,7 +7,7 @@ This repository contains [Flow JS] types which are useful for working with **dec
 
 ```js
 // Adds a field in addition to the decorated one, which gets the value in a sassy way
-function mySassyDecorator(descriptor : FieldDescriptor<string>) : FieldOutputDescriptor<string> {
+function mySassyDecorator(descriptor : FieldDescriptor<string>) : FieldOutputDescriptor<string,mixed> {
     return {
         ...descriptor,
         extras: [

@@ -12,7 +12,7 @@ function mySassyDecorator(descriptor : FieldDescriptor<string>) : FieldOutputDes
         ...descriptor,
         extras: [
             {
-                kind: 'field',
+                kind: 'method',
                 key: descriptor.key + 'WithSass',
                 placement: 'prototype',
                 descriptor: {
